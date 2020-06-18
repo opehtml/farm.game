@@ -16,22 +16,24 @@
 </body>
 
 <script>
+
    function startGame(){
    
         score=0;
+		
 		$('#gamearea').append("<img id='farmer' src='assets/farmer.jpg' />");
 		
 		createPig();
 		
    }
-   document.onkeydown=movement;
+   
+   document.onkeydown = movement;
    
    function movement(e){
         
 		e=e||window.event;
 		
 		if (e.keyCode=='38'){
-		    
 			up=parseFloat($('#farmer').css('marginTop'));
 			if (up>0) {
 			   $('#farmer').css("margin-top",(up-40)+"px")
@@ -39,7 +41,6 @@
 		}
 		
 		else if (e.keyCode=='40'){
-		    
 			down=parseFloat($('#farmer').css('marginTop'));
 			if (down<500) {
 			   $('#farmer').css("margin-top",(down+40)+"px")
@@ -56,16 +57,20 @@
 		else if (e.keyCode=='39'){
 		    right=parseFloat($('#farmer').css('marginLeft'));
 			if (right<1250) {
-			$('#farmer').css("margin-left",(right+40)+"px")
+				$('#farmer').css("margin-left",(right+40)+"px")
 			}
 		}
    }
    
    function createPig(){
+   
         setInterval(function() {
+		
 		    $('#pig').remove();
+			
 			var direction=Math.floor(Math.random()*2);
-			$('body').append("<img id='pig' src='pig.png'/>");
+			
+			$('body').append("<img id='pig' src='assets/pig.png'/>");
 			
 			if(direction==1){
 			   $("#pig").css("margin-left","-15%");
@@ -77,6 +82,7 @@
 			}
 		},3000);
    }
+   
 </script>
 
 </html>
